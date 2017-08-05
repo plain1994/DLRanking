@@ -149,6 +149,11 @@
               <td><img id="star_16_avatar" class="avatar_img"><a id="star_16_name"></a></td>
               <td id="star_16_num"></td>
             </tr>
+            <tr>
+              <td>17</td>
+              <td><img id="star_17_avatar" class="avatar_img"><a id="star_17_name"></a></td>
+              <td id="star_17_num"></td>
+            </tr>
           </table>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -240,6 +245,11 @@
               <td><img id="fork_16_avatar" class="avatar_img"><a id="fork_16_name"></a></td>
               <td id="fork_16_num"></td>
             </tr>
+            <tr>
+              <td>17</td>
+              <td><img id="fork_17_avatar" class="avatar_img"><a id="fork_17_name"></a></td>
+              <td id="fork_17_num"></td>
+            </tr>
           </table>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
@@ -330,6 +340,11 @@
               <td>16</td>
               <td><img id="watch_16_avatar" class="avatar_img"><a id="watch_16_name"></a></td>
               <td id="watch_16_num"></td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td><img id="watch_17_avatar" class="avatar_img"><a id="watch_17_name"></a></td>
+              <td id="watch_17_num"></td>
             </tr>
           </table>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
@@ -501,12 +516,13 @@
         arr[14] = torch7;
         arr[15] = tflearn;
         arr[16] = paddle;
+        arr[3] = keras;
 
 
 
 
         arr_star = arr.sort(sortStar);
-        for (var i=0; i<16; i++)
+        for (var i=0; i<17; i++)
         {
           var name = "#star_";
           name += i+1;
@@ -524,7 +540,7 @@
         }
 
         arr_fork = arr.sort(sortFork)
-        for (var i=0; i<16; i++)
+        for (var i=0; i<17; i++)
         {
           var name = "#fork_";
           name += i+1;
@@ -543,7 +559,7 @@
 
 
         arr_watch = arr.sort(sortWatch)
-        for (var i=0; i<16; i++)
+        for (var i=0; i<17; i++)
         {
           var name = "#watch_";
           name += i+1;
