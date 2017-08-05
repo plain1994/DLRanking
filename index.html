@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./img/carrot.jpg">
+
+    <title>DL Ranking</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">DL Ranking</a>
+          <a class="navbar-brand" href="#">Star</a>
+          <a class="navbar-brand" href="#">Fork</a>
+          <a class="navbar-brand" href="#">Watch</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>DL Ranking</h1>
+        <p>Real-time ranking for deep learning frameworks (github stars, forks, watches...)</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Star</h2>
+          <table class="table table-striped">
+            <tr>
+              <th>Rank</th>
+              <th>Frame</th>
+              <th>Star</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><img id="star_1_avatar" class="avatar_img"><a id="star_1_name"></a></td>
+              <td id="star_1_num"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img id="star_2_avatar" class="avatar_img"><a id="star_2_name"></a></td>
+              <td id="star_2_num"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img id="star_3_avatar" class="avatar_img"><a id="star_3_name"></a></td>
+              <td id="star_3_num"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img id="star_4_avatar" class="avatar_img"><a id="star_4_name"></a></td>
+              <td id="star_4_num"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><img id="star_5_avatar" class="avatar_img"><a id="star_5_name"></a></td>
+              <td id="star_5_num"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><img id="star_6_avatar" class="avatar_img"><a id="star_6_name"></a></td>
+              <td id="star_6_num"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><img id="star_7_avatar" class="avatar_img"><a id="star_7_name"></a></td>
+              <td id="star_7_num"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><img id="star_8_avatar" class="avatar_img"><a id="star_8_name"></a></td>
+              <td id="star_8_num"></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><img id="star_9_avatar" class="avatar_img"><a id="star_9_name"></a></td>
+              <td id="star_9_num"></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><img id="star_10_avatar" class="avatar_img"><a id="star_10_name"></a></td>
+              <td id="star_10_num"></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td><img id="star_11_avatar" class="avatar_img"><a id="star_11_name"></a></td>
+              <td id="star_11_num"></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td><img id="star_12_avatar" class="avatar_img"><a id="star_12_name"></a></td>
+              <td id="star_12_num"></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td><img id="star_13_avatar" class="avatar_img"><a id="star_13_name"></a></td>
+              <td id="star_13_num"></td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td><img id="star_14_avatar" class="avatar_img"><a id="star_14_name"></a></td>
+              <td id="star_14_num"></td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td><img id="star_15_avatar" class="avatar_img"><a id="star_15_name"></a></td>
+              <td id="star_15_num"></td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td><img id="star_16_avatar" class="avatar_img"><a id="star_16_name"></a></td>
+              <td id="star_16_num"></td>
+            </tr>
+          </table>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Fork</h2>
+          <table class="table table-striped">
+            <tr>
+              <th>Rank</th>
+              <th>Frame</th>
+              <th>Fork</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><img id="fork_1_avatar" class="avatar_img"><a id="fork_1_name"></a></td>
+              <td id="fork_1_num"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img id="fork_2_avatar" class="avatar_img"><a id="fork_2_name"></a></td>
+              <td id="fork_2_num"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img id="fork_3_avatar" class="avatar_img"><a id="fork_3_name"></a></td>
+              <td id="fork_3_num"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img id="fork_4_avatar" class="avatar_img"><a id="fork_4_name"></a></td>
+              <td id="fork_4_num"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><img id="fork_5_avatar" class="avatar_img"><a id="fork_5_name"></a></td>
+              <td id="fork_5_num"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><img id="fork_6_avatar" class="avatar_img"><a id="fork_6_name"></a></td>
+              <td id="fork_6_num"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><img id="fork_7_avatar" class="avatar_img"><a id="fork_7_name"></a></td>
+              <td id="fork_7_num"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><img id="fork_8_avatar" class="avatar_img"><a id="fork_8_name"></a></td>
+              <td id="fork_8_num"></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><img id="fork_9_avatar" class="avatar_img"><a id="fork_9_name"></a></td>
+              <td id="fork_9_num"></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><img id="fork_10_avatar" class="avatar_img"><a id="fork_10_name"></a></td>
+              <td id="fork_10_num"></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td><img id="fork_11_avatar" class="avatar_img"><a id="fork_11_name"></a></td>
+              <td id="fork_11_num"></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td><img id="fork_12_avatar" class="avatar_img"><a id="fork_12_name"></a></td>
+              <td id="fork_12_num"></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td><img id="fork_13_avatar" class="avatar_img"><a id="fork_13_name"></a></td>
+              <td id="fork_13_num"></td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td><img id="fork_14_avatar" class="avatar_img"><a id="fork_14_name"></a></td>
+              <td id="fork_14_num"></td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td><img id="fork_15_avatar" class="avatar_img"><a id="fork_15_name"></a></td>
+              <td id="fork_15_num"></td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td><img id="fork_16_avatar" class="avatar_img"><a id="fork_16_name"></a></td>
+              <td id="fork_16_num"></td>
+            </tr>
+          </table>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Watch</h2>
+          <table class="table table-striped">
+            <tr>
+              <th>Rank</th>
+              <th>Frame</th>
+              <th>Watch</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><img id="watch_1_avatar" class="avatar_img"><a id="watch_1_name"></a></td>
+              <td id="watch_1_num"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img id="watch_2_avatar" class="avatar_img"><a id="watch_2_name"></a></td>
+              <td id="watch_2_num"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img id="watch_3_avatar" class="avatar_img"><a id="watch_3_name"></a></td>
+              <td id="watch_3_num"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img id="watch_4_avatar" class="avatar_img"><a id="watch_4_name"></a></td>
+              <td id="watch_4_num"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><img id="watch_5_avatar" class="avatar_img"><a id="watch_5_name"></a></td>
+              <td id="watch_5_num"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><img id="watch_6_avatar" class="avatar_img"><a id="watch_6_name"></a></td>
+              <td id="watch_6_num"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><img id="watch_7_avatar" class="avatar_img"><a id="watch_7_name"></a></td>
+              <td id="watch_7_num"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><img id="watch_8_avatar" class="avatar_img"><a id="watch_8_name"></a></td>
+              <td id="watch_8_num"></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><img id="watch_9_avatar" class="avatar_img"><a id="watch_9_name"></a></td>
+              <td id="watch_9_num"></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><img id="watch_10_avatar" class="avatar_img"><a id="watch_10_name"></a></td>
+              <td id="watch_10_num"></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td><img id="watch_11_avatar" class="avatar_img"><a id="watch_11_name"></a></td>
+              <td id="watch_11_num"></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td><img id="watch_12_avatar" class="avatar_img"><a id="watch_12_name"></a></td>
+              <td id="watch_12_num"></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td><img id="watch_13_avatar" class="avatar_img"><a id="watch_13_name"></a></td>
+              <td id="watch_13_num"></td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td><img id="watch_14_avatar" class="avatar_img"><a id="watch_14_name"></a></td>
+              <td id="watch_14_num"></td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td><img id="watch_15_avatar" class="avatar_img"><a id="watch_15_name"></a></td>
+              <td id="watch_15_num"></td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td><img id="watch_16_avatar" class="avatar_img"><a id="watch_16_name"></a></td>
+              <td id="watch_16_num"></td>
+            </tr>
+          </table>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <div class="row">
+
+          <div class="col-lg-4 col-lg-offset-1">
+            <p>© 2017 <a href="http://www.tomgou.xyz/">Yuchuan Gou</a></p>
+          </div>
+          <div class="col-lg-4">
+            <p>Fork me on <a href="https://github.com/plain1994/DLRanking">Github</a></p>
+          </div>
+          <div class="col-lg-3">
+
+          </div>
+        </div><!--/.row -->
+      </footer>
+    </div> <!-- /container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      function frame(framename, starcount, forkcount, subscribers_count, html_url, avatar_url)
+      {
+        this.framename = framename;
+        this.starcount = starcount;
+        this.forkcount = forkcount;
+        this.subscribers_count = subscribers_count;
+        this.html_url = html_url;
+        this.avatar_url = avatar_url;
+      }
+
+      function sortStar(a,b)
+      {
+        return b.starcount - a.starcount
+      }
+      function sortFork(a,b)
+      {
+        return b.forkcount - a.forkcount
+      }
+      function sortWatch(a,b)
+      {
+        return b.subscribers_count - a.subscribers_count
+      }
+
+      $(document).ready(function() {
+        var theano, tensorflow, pytorch, caffe, keras, deeplearning4j, dynet, dlib, sonnet, neon,
+          caffe2, CNTK, chainer, mxnet, torch7, tflearn, paddle;
+
+        $.ajaxSettings.async=false;
+        $.getJSON("https://api.github.com/repos/Theano/Theano",function(result){
+          //console.log(result);
+          theano = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/tensorflow/tensorflow",function(result){
+          //console.log(result);
+          tensorflow = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/pytorch/pytorch",function(result){
+          //console.log(result);
+          pytorch = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/BVLC/caffe",function(result){
+          //console.log(result);
+          caffe = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/fchollet/keras",function(result){
+          //console.log(result);
+          keras = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.owner.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/deeplearning4j/deeplearning4j",function(result){
+          //console.log(result);
+          deeplearning4j = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/davisking/dlib",function(result){
+          //console.log(result);
+          dlib = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.owner.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/clab/dynet",function(result){
+          //console.log(result);
+          dynet = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/deepmind/sonnet",function(result){
+          //console.log(result);
+          sonnet = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/NervanaSystems/neon",function(result){
+          //console.log(result);
+          neon = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/caffe2/caffe2",function(result){
+          //console.log(result);
+          caffe2 = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/Microsoft/CNTK",function(result){
+          //console.log(result);
+          CNTK = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/chainer/chainer",function(result){
+          //console.log(result);
+          chainer = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/apache/incubator-mxnet",function(result){
+          //console.log(result);
+          mxnet = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/torch/torch7",function(result){
+          //console.log(result);
+          torch7 = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/tflearn/tflearn",function(result){
+          //console.log(result);
+          tflearn = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+        $.getJSON("https://api.github.com/repos/PaddlePaddle/Paddle",function(result){
+          //console.log(result);
+          paddle = new frame(result.full_name, result.stargazers_count, result.forks_count,
+            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        });
+
+        //console.log(theano);
+        //console.log(tensorflow);
+        //console.log(pytorch);
+        //console.log(caffe);
+
+        var arr = new Array(17);
+        arr[0] = theano;
+        arr[1] = tensorflow;
+        arr[2] = pytorch;
+        arr[4] = caffe;
+        arr[5] = deeplearning4j;
+        arr[6] = dynet;
+        arr[7] = dlib;
+        arr[8] = sonnet;
+        arr[9] = neon;
+        arr[10] = caffe2;
+        arr[11] = CNTK;
+        arr[12] = chainer;
+        arr[13] = mxnet;
+        arr[14] = torch7;
+        arr[15] = tflearn;
+        arr[16] = paddle;
+
+
+
+
+        arr_star = arr.sort(sortStar);
+        for (var i=0; i<16; i++)
+        {
+          var name = "#star_";
+          name += i+1;
+          name += "_name";
+          $(name).append(arr_star[i].framename);
+          $(name).attr("href",arr_star[i].html_url);
+          var avatar = "#star_";
+          avatar += i+1;
+          avatar += "_avatar";
+          $(avatar).attr("src",arr_star[i].avatar_url);
+          var num = "#star_";
+          num += i+1;
+          num += "_num";
+          $(num).append(arr_star[i].forkcount);
+        }
+
+        arr_fork = arr.sort(sortFork)
+        for (var i=0; i<16; i++)
+        {
+          var name = "#fork_";
+          name += i+1;
+          name += "_name";
+          $(name).append(arr_fork[i].framename);
+          $(name).attr("href",arr_fork[i].html_url);
+          var avatar = "#fork_";
+          avatar += i+1;
+          avatar += "_avatar";
+          $(avatar).attr("src",arr_fork[i].avatar_url);
+          var num = "#fork_";
+          num += i+1;
+          num += "_num";
+          $(num).append(arr_fork[i].forkcount);
+        }
+
+
+        arr_watch = arr.sort(sortWatch)
+        for (var i=0; i<16; i++)
+        {
+          var name = "#watch_";
+          name += i+1;
+          name += "_name";
+          $(name).append(arr_watch[i].framename);
+          $(name).attr("href",arr_watch[i].html_url);
+          var watchavatar = "#watch_";
+          watchavatar += i+1;
+          watchavatar += "_avatar";
+          $(watchavatar).attr("src",arr_watch[i].avatar_url);
+          var num = "#watch_";
+          num += i+1;
+          num += "_num";
+          $(num).append(arr_watch[i].forkcount);
+        }
+
+
+      });
+    </script>
+  </body>
+</html>

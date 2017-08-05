@@ -1,0 +1,10 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.avatar_img{
+  height: 20px;
+  padding-right: 5px;
+}
