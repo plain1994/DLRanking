@@ -56,6 +56,12 @@
         <h1>DL Ranking</h1>
         <p>Real-time ranking for deep learning frameworks (github stars, forks, watches...)</p>
       </div>
+      <div id="loadingout" class="progress progress-striped active">
+        <div id="loading" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60"
+             aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -407,92 +413,154 @@
         var theano, tensorflow, pytorch, caffe, keras, deeplearning4j, dynet, dlib, sonnet, neon,
           caffe2, CNTK, chainer, mxnet, torch7, tflearn, paddle;
 
+        var value = 10;
+        $("#loading").css("width",value + "%").text(value + "%");
+
+
+
         $.ajaxSettings.async=false;
         $.getJSON("https://api.github.com/repos/Theano/Theano",function(result){
           //console.log(result);
           theano = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/tensorflow/tensorflow",function(result){
           //console.log(result);
           tensorflow = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/pytorch/pytorch",function(result){
           //console.log(result);
           pytorch = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/BVLC/caffe",function(result){
           //console.log(result);
           caffe = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+        $("#loading").removeClass("progress-bar-danger");
+        $("#loading").addClass("progress-bar-warning");
+
         $.getJSON("https://api.github.com/repos/fchollet/keras",function(result){
           //console.log(result);
           keras = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.owner.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/deeplearning4j/deeplearning4j",function(result){
           //console.log(result);
           deeplearning4j = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/davisking/dlib",function(result){
           //console.log(result);
           dlib = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.owner.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/clab/dynet",function(result){
           //console.log(result);
           dynet = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/deepmind/sonnet",function(result){
           //console.log(result);
           sonnet = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/NervanaSystems/neon",function(result){
           //console.log(result);
           neon = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+        $("#loading").removeClass("progress-bar-warning");
+        $("#loading").addClass("progress-bar-info");
+
         $.getJSON("https://api.github.com/repos/caffe2/caffe2",function(result){
           //console.log(result);
           caffe2 = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/Microsoft/CNTK",function(result){
           //console.log(result);
           CNTK = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/chainer/chainer",function(result){
           //console.log(result);
           chainer = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/apache/incubator-mxnet",function(result){
           //console.log(result);
           mxnet = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/torch/torch7",function(result){
           //console.log(result);
           torch7 = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+        $("#loading").removeClass("progress-bar-info");
+        $("#loading").addClass("progress-bar-success");
+
         $.getJSON("https://api.github.com/repos/tflearn/tflearn",function(result){
           //console.log(result);
           tflearn = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
         $.getJSON("https://api.github.com/repos/PaddlePaddle/Paddle",function(result){
           //console.log(result);
           paddle = new frame(result.full_name, result.stargazers_count, result.forks_count,
             result.subscribers_count, result.html_url, result.organization.avatar_url);
         });
+        value += 5
+        $("#loading").css("width",value + "%").text(value + "%");
+
 
         //console.log(theano);
         //console.log(tensorflow);
@@ -575,6 +643,11 @@
           num += "_num";
           $(num).append(arr_watch[i].subscribers_count);
         }
+
+        value = 100
+        $("#loading").css("width",value + "%").text(value + "%");
+
+        $("#loadingout").remove();
 
 
       });
