@@ -2,7 +2,7 @@
 [DLRanking.com](http://www.dlranking.com/), Real-time ranking for deep learning frameworks (github stars, forks, watches...)
 
 ## Webpage
-![](screen_shot.png)](http://www.dlranking.com/)
+[![](screen_shot.png)](http://www.dlranking.com/)
 
 
 
