@@ -124,7 +124,6 @@ STATIC_ROOT = '/var/www/dlranking.com/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    "/var/www/dlranking.com/static/"
     ]
 
 STATICFILES_FINDERS = (
