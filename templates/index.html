@@ -7,22 +7,22 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="./img/carrot.jpg">
+    <link rel="icon" href="/static/imgs/carrot.jpg">
 
     <title>DL Ranking</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./css/jumbotron.css" rel="stylesheet">
+    <link href="/static/css/jumbotron.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./js/ie-emulation-modes-warning.js"></script>
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -42,10 +42,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">DL Ranking</a>
-          <a class="navbar-brand" href="#">Star</a>
-          <a class="navbar-brand" href="#">Fork</a>
-          <a class="navbar-brand" href="#">Watch</a>
+          <a class="navbar-brand" href="/">DL Ranking</a>
+          <a class="navbar-brand" href="/star/">Star</a>
+          <a class="navbar-brand" href="/fork/">Fork</a>
+          <a class="navbar-brand" href="/watch/">Watch</a>
+            <a class="navbar-brand" href="/real/">Real-time</a>
         </div>
       </div>
     </nav>
@@ -56,14 +57,7 @@
         <h1>DL Ranking</h1>
         <p>Real-time ranking for deep learning frameworks (github stars, forks, watches...)</p>
       </div>
-      <div id="loadingout" class="progress progress-striped active">
-        <div id="loading" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60"
-             aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
     </div>
-
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -382,275 +376,62 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
     <script>
-      function frame(framename, starcount, forkcount, subscribers_count, html_url, avatar_url)
-      {
-        this.framename = framename;
-        this.starcount = starcount;
-        this.forkcount = forkcount;
-        this.subscribers_count = subscribers_count;
-        this.html_url = html_url;
-        this.avatar_url = avatar_url;
-      }
-
-      function sortStar(a,b)
-      {
-        return b.starcount - a.starcount
-      }
-      function sortFork(a,b)
-      {
-        return b.forkcount - a.forkcount
-      }
-      function sortWatch(a,b)
-      {
-        return b.subscribers_count - a.subscribers_count
-      }
-
-      $(document).ready(function() {
-        var theano, tensorflow, pytorch, caffe, keras, deeplearning4j, dynet, dlib, sonnet, neon,
-          caffe2, CNTK, chainer, mxnet, torch7, tflearn, paddle;
-
-        var value = 10;
-        $("#loading").css("width",value + "%").text(value + "%");
-
-
-
-        $.ajaxSettings.async=false;
-        $.getJSON("https://api.github.com/repos/Theano/Theano",function(result){
-          //console.log(result);
-          theano = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
+        $(document).ready(function() {
+            $.post("/frameinfo/",function(result){
+                //console.log(result);
+                //$("#watch_1_num").html(result);
+                var starlen = result.length / 3;
+                for (var i=0; i<starlen; i++){
+                    var name = "#star_";
+                    name += i+1;
+                    name += "_name";
+                    $(name).append(result[i].fields.name);
+                    $(name).attr("href",result[i].fields.http_link);
+                    var avatar = "#star_";
+                    avatar += i+1;
+                    avatar += "_avatar";
+                    $(avatar).attr("src",result[i].fields.img_link);
+                    var num = "#star_";
+                    num += i+1;
+                    num += "_num";
+                    $(num).append(result[i].fields.star_num);
+                }
+                for (var i=0; i<starlen; i++){
+                    var name = "#fork_";
+                    name += i+1;
+                    name += "_name";
+                    $(name).append(result[i+starlen].fields.name);
+                    $(name).attr("href",result[i+starlen].fields.http_link);
+                    var avatar = "#fork_";
+                    avatar += i+1;
+                    avatar += "_avatar";
+                    $(avatar).attr("src",result[i+starlen].fields.img_link);
+                    var num = "#fork_";
+                    num += i+1;
+                    num += "_num";
+                    $(num).append(result[i+starlen].fields.fork_num);
+                }
+                for (var i=0; i<starlen; i++){
+                    var name = "#watch_";
+                    name += i+1;
+                    name += "_name";
+                    $(name).append(result[i+2*starlen].fields.name);
+                    $(name).attr("href",result[i+2*starlen].fields.http_link);
+                    var avatar = "#watch_";
+                    avatar += i+1;
+                    avatar += "_avatar";
+                    $(avatar).attr("src",result[i+2*starlen].fields.img_link);
+                    var num = "#watch_";
+                    num += i+1;
+                    num += "_num";
+                    $(num).append(result[i+2*starlen].fields.watch_num);
+                }
+            }, 'json');
         });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/tensorflow/tensorflow",function(result){
-          //console.log(result);
-          tensorflow = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/pytorch/pytorch",function(result){
-          //console.log(result);
-          pytorch = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/BVLC/caffe",function(result){
-          //console.log(result);
-          caffe = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-        $("#loading").removeClass("progress-bar-danger");
-        $("#loading").addClass("progress-bar-warning");
-
-        $.getJSON("https://api.github.com/repos/fchollet/keras",function(result){
-          //console.log(result);
-          keras = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.owner.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/deeplearning4j/deeplearning4j",function(result){
-          //console.log(result);
-          deeplearning4j = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/davisking/dlib",function(result){
-          //console.log(result);
-          dlib = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.owner.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/clab/dynet",function(result){
-          //console.log(result);
-          dynet = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/deepmind/sonnet",function(result){
-          //console.log(result);
-          sonnet = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/NervanaSystems/neon",function(result){
-          //console.log(result);
-          neon = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-        $("#loading").removeClass("progress-bar-warning");
-        $("#loading").addClass("progress-bar-info");
-
-        $.getJSON("https://api.github.com/repos/caffe2/caffe2",function(result){
-          //console.log(result);
-          caffe2 = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/Microsoft/CNTK",function(result){
-          //console.log(result);
-          CNTK = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/chainer/chainer",function(result){
-          //console.log(result);
-          chainer = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/apache/incubator-mxnet",function(result){
-          //console.log(result);
-          mxnet = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/torch/torch7",function(result){
-          //console.log(result);
-          torch7 = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-        $("#loading").removeClass("progress-bar-info");
-        $("#loading").addClass("progress-bar-success");
-
-        $.getJSON("https://api.github.com/repos/tflearn/tflearn",function(result){
-          //console.log(result);
-          tflearn = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $.getJSON("https://api.github.com/repos/PaddlePaddle/Paddle",function(result){
-          //console.log(result);
-          paddle = new frame(result.full_name, result.stargazers_count, result.forks_count,
-            result.subscribers_count, result.html_url, result.organization.avatar_url);
-        });
-        value += 5
-        $("#loading").css("width",value + "%").text(value + "%");
-
-
-        //console.log(theano);
-        //console.log(tensorflow);
-        //console.log(pytorch);
-        //console.log(caffe);
-
-        var arr = new Array(17);
-        arr[7] = theano;
-        arr[0] = tensorflow;
-        arr[10] = pytorch;
-        arr[1] = caffe;
-        arr[6] = deeplearning4j;
-        arr[11] = dynet;
-        arr[12] = dlib;
-        arr[13] = sonnet;
-        arr[14] = neon;
-        arr[15] = caffe2;
-        arr[3] = CNTK;
-        arr[16] = chainer;
-        arr[4] = mxnet;
-        arr[5] = torch7;
-        arr[8] = tflearn;
-        arr[9] = paddle;
-        arr[2] = keras;
-
-
-
-
-        arr_star = arr.sort(sortStar);
-        for (var i=0; i<17; i++)
-        {
-          var name = "#star_";
-          name += i+1;
-          name += "_name";
-          $(name).append(arr_star[i].framename);
-          $(name).attr("href",arr_star[i].html_url);
-          var avatar = "#star_";
-          avatar += i+1;
-          avatar += "_avatar";
-          $(avatar).attr("src",arr_star[i].avatar_url);
-          var num = "#star_";
-          num += i+1;
-          num += "_num";
-          $(num).append(arr_star[i].starcount);
-        }
-
-        arr_fork = arr.sort(sortFork)
-        for (var i=0; i<17; i++)
-        {
-          var name = "#fork_";
-          name += i+1;
-          name += "_name";
-          $(name).append(arr_fork[i].framename);
-          $(name).attr("href",arr_fork[i].html_url);
-          var avatar = "#fork_";
-          avatar += i+1;
-          avatar += "_avatar";
-          $(avatar).attr("src",arr_fork[i].avatar_url);
-          var num = "#fork_";
-          num += i+1;
-          num += "_num";
-          $(num).append(arr_fork[i].forkcount);
-        }
-
-
-        arr_watch = arr.sort(sortWatch)
-        for (var i=0; i<17; i++)
-        {
-          var name = "#watch_";
-          name += i+1;
-          name += "_name";
-          $(name).append(arr_watch[i].framename);
-          $(name).attr("href",arr_watch[i].html_url);
-          var watchavatar = "#watch_";
-          watchavatar += i+1;
-          watchavatar += "_avatar";
-          $(watchavatar).attr("src",arr_watch[i].avatar_url);
-          var num = "#watch_";
-          num += i+1;
-          num += "_num";
-          $(num).append(arr_watch[i].subscribers_count);
-        }
-
-        value = 100
-        $("#loading").css("width",value + "%").text(value + "%");
-
-        $("#loadingout").remove();
-
-
-      });
     </script>
   </body>
 </html>
