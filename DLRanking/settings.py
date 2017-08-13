@@ -120,11 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+STATIC_ROOT = '/var/www/dlranking.com/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    "/root/dl/DLRanking/static_root"
+    "/var/www/dlranking.com/static/"
     ]
 
 STATICFILES_FINDERS = (
