@@ -6,6 +6,8 @@
 
 Back-end: [Django](https://www.djangoproject.com/), [Bokeh](http://bokeh.pydata.org/en/latest/)
 
+Database: sqlite3
+
 Front-end: [Bootstrap](http://getbootstrap.com/2.3.2/index.html), Javascript
 
 ## Webpage
