@@ -1,3 +1,5 @@
+<p align="left"><img src="static/imgs/logo/horizontal.png" alt="DLRanking" height="150px"></p>
+
 # DLRanking
 
 [DLRanking.com](http://www.dlranking.com/), Real-time ranking for deep learning frameworks (github stars, forks, watches...)
