@@ -8,7 +8,7 @@ Django==1.10.6
 Flask==0.12.2
 idna==2.5
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 kml2geojson==4.0.0
 MarkupSafe==1.0
 python-dateutil==2.6.1
