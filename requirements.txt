@@ -12,7 +12,7 @@ Jinja2==2.9.6
 kml2geojson==4.0.0
 MarkupSafe==1.0
 python-dateutil==2.6.1
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.3
 six==1.10.0
 tornado==4.5.1
